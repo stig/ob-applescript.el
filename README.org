@@ -8,33 +8,33 @@
   No arguments, no code -- just return a string.
 
   #+BEGIN_EXAMPLE
-  #+BEGIN_SRC applescript
-  "Hello World"
-  #+END_SRC
+    ,#+BEGIN_SRC applescript
+    "Hello World"
+    ,#+END_SRC
 
-  #+RESULTS:
-  : Hello World
+    ,#+RESULTS:
+    : Hello World
   #+END_EXAMPLE
 
   Set a variable.
 
   #+BEGIN_EXAMPLE
-  #+BEGIN_SRC applescript
-  set foo to "Hello World"
-  foo
-  #+END_SRC
+    ,#+BEGIN_SRC applescript
+    set foo to "Hello World"
+    foo
+    ,#+END_SRC
 
-  #+RESULTS:
-  : Hello World
+    ,#+RESULTS:
+    : Hello World
   #+END_EXAMPLE
 
   Pass a variable to a block.
 
   #+BEGIN_EXAMPLE
-  #+BEGIN_SRC applescript :var subject="World" :tangle yes
-  "Hello " & subject
-  #+END_SRC
+    ,#+BEGIN_SRC applescript :var subject="World" :tangle yes
+    "Hello " & subject
+    ,#+END_SRC
 
-  #+RESULTS:
-  : Hello World
+    ,#+RESULTS:
+    : Hello World
   #+END_EXAMPLE
