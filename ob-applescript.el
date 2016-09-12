@@ -58,12 +58,12 @@
  specifying a var of the same value."
   (format "%S" var))
 
-(require 'subr-x)
 (defun org-babel-expand-body:applescript (body params)
-  (concat
-   (string-join
-    (org-babel-variable-assignments:applescript params))
-   body))
+  (concat (apply #'concat
+                 (org-babel-variable-assignments:applescript params))
+          "\n"
+          body
+          "\n"))
 
 (defun org-babel-execute:applescript (body params)
   "Execute a block of AppleScript code with org-babel.
