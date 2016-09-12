@@ -1,0 +1,36 @@
+#+TITLE: AppleScript integration for Org Babel
+#+PROPERTY: :exports both
+* About
+
+  This module lets you run AppleScript from AppleScript source code blocks
+  with Org Babel.
+
+* Some simple tests
+
+  No arguments, no code -- just return a string.
+
+  #+BEGIN_SRC applescript
+  "Hello World"
+  #+END_SRC
+
+  #+RESULTS:
+  : Hello World
+
+  Set a variable.
+
+  #+BEGIN_SRC applescript
+  set foo to "Hello World"
+  foo
+  #+END_SRC
+
+  #+RESULTS:
+  : Hello World
+
+  Pass a variable to a block.
+
+  #+BEGIN_SRC applescript :var subject="World" :tangle yes
+  "Hello " & subject
+  #+END_SRC
+
+  #+RESULTS:
+  : Hello World
