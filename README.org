@@ -31,7 +31,7 @@
   Pass a variable to a block.
 
   #+BEGIN_EXAMPLE
-    ,#+BEGIN_SRC applescript :var subject="World" :tangle yes
+    ,#+BEGIN_SRC applescript :var subject="World"
     "Hello " & subject
     ,#+END_SRC
 
