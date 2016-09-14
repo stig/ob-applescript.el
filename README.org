@@ -1,40 +1,67 @@
+#+startup: showall
 #+TITLE: AppleScript integration for Org Babel
 
   This module lets you run AppleScript from AppleScript source code blocks
   with Org Babel.
 
-* Some simple tests
+* Some simple examples
 
   No arguments, no code -- just return a string.
 
-  #+BEGIN_EXAMPLE
+  #+BEGIN_SRC org
     ,#+BEGIN_SRC applescript
-    "Hello World"
+      "Hello World"
     ,#+END_SRC
 
     ,#+RESULTS:
     : Hello World
-  #+END_EXAMPLE
+  #+END_SRC
 
-  Set a variable.
+  You can, however, pass a variable to a block:
 
-  #+BEGIN_EXAMPLE
-    ,#+BEGIN_SRC applescript
-    set foo to "Hello World"
-    foo
-    ,#+END_SRC
-
-    ,#+RESULTS:
-    : Hello World
-  #+END_EXAMPLE
-
-  Pass a variable to a block.
-
-  #+BEGIN_EXAMPLE
+  #+BEGIN_SRC org
     ,#+BEGIN_SRC applescript :var subject="World"
-    "Hello " & subject
+      "Hello " & subject
     ,#+END_SRC
 
     ,#+RESULTS:
     : Hello World
-  #+END_EXAMPLE
+  #+END_SRC
+
+  Both 'apples' and 'applescript' works, to cater for two popular major modes.
+  Use whichever you like. I prefer the font-locking of the `apples' one. This
+  example also shows you can do interactive stuff.
+
+  #+BEGIN_SRC org
+    ,#+BEGIN_SRC apples
+    display alert "Danger! The WHAM is overheating!"
+    ,#+END_SRC
+
+    ,#+RESULTS:
+    : button returned:OK
+  #+END_SRC
+
+  If the result of the evaluation looks like a table, it'll become a table:
+
+  #+BEGIN_SRC org
+    ,#+BEGIN_SRC apples
+    "fi fo
+    1 2
+    3 4"
+    ,#+END_SRC
+
+    ,#+RESULTS:
+    | fi | fo |
+    |  1 |  2 |
+    |  3 |  4 |
+  #+END_SRC
+
+
+* Ideas for future work (you're welcome to help!)
+
+  - =osascript= supports an interactive mode, which means I think it should be
+    possible to support =:session=.
+
+  - Adding some tests.
+
+  - Adding some more documentation & examples.
