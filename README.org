@@ -56,6 +56,13 @@
     |  3 |  4 |
   #+END_SRC
 
+* Installation
+
+  At the moment only manual install is possible.
+
+  If you would like to be able to install it from Melpa using package.el, I
+  humbly beg you to vote for [[https://github.com/melpa/melpa/pull/4242][this pull request]].
+
 
 * Ideas for future work (you're welcome to help!)
 
