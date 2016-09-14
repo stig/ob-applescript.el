@@ -71,27 +71,27 @@
   (message "executing AppleScript source code block")
   (let* ((processed-params (org-babel-process-params params))
          (full-body (org-babel-expand-body:applescript body processed-params)))
-    ;;(org-babel-applescript-table-or-string
-    (org-babel-eval "osascript" full-body)))
-;;)
+    (org-babel-applescript-table-or-string
+     (org-babel-eval "osascript" full-body)
+     params)))
 
-;; (defun org-babel-execute:apples (body params)
-;;   "Execute a block of AppleScript with org-babel."
-;;   (org-babel-execute:applescript body params))
+(defun org-babel-execute:apples (body params)
+  "Execute a block of AppleScript with org-babel."
+  (org-babel-execute:applescript body params))
 
-;; (defun org-babel-applescript-table-or-string (results params)
-;;   "If the results look like a table, then convert them into an
-;;  Emacs-lisp table, otherwise return the results as a string."
-;;   (org-babel-reassemble-table
-;;    (org-babel-result-cond (cdr (assoc :result-params params))
-;;      (org-babel-read results)
-;;      (let ((tmp-file (org-babel-temp-file "c-")))
-;;        (with-temp-file tmp-file (insert results))
-;;        (org-babel-import-elisp-from-file tmp-file)))
-;;    (org-babel-pick-name
-;;     (cdr (assoc :colname-names params)) (cdr (assoc :colnames params)))
-;;    (org-babel-pick-name
-;;     (cdr (assoc :rowname-names params)) (cdr (assoc :rownames params)))))
+(defun org-babel-applescript-table-or-string (results params)
+  "If the results look like a table, then convert them into an
+ Emacs-lisp table, otherwise return the results as a string."
+  (org-babel-reassemble-table
+   (org-babel-result-cond (cdr (assoc :result-params params))
+     (org-babel-read results)
+     (let ((tmp-file (org-babel-temp-file "c-")))
+       (with-temp-file tmp-file (insert results))
+       (org-babel-import-elisp-from-file tmp-file)))
+   (org-babel-pick-name
+    (cdr (assoc :colname-names params)) (cdr (assoc :colnames params)))
+   (org-babel-pick-name
+    (cdr (assoc :rowname-names params)) (cdr (assoc :rownames params)))))
 
 (provide 'ob-applescript)
 ;;; ob-applescript.el ends here
