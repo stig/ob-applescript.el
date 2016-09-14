@@ -4,6 +4,9 @@
   This module lets you run AppleScript from AppleScript source code blocks
   with Org Babel.
 
+  This package is a direct result of attempting to answer a question on [[http://emacs.stackexchange.com/q/26374/10625][this
+  emacs.stackexchange.com thread]].
+
 * Some simple examples
 
   No arguments, no code -- just return a string.
