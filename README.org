@@ -61,11 +61,13 @@
 
 * Installation
 
-  At the moment only manual install is possible.
+  =M-x package-install RET ob-applescript RET=
 
-  If you would like to be able to install it from Melpa using package.el, I
-  humbly beg you to vote for [[https://github.com/melpa/melpa/pull/4242][this pull request]].
+  Then, load the package from your =~/.emacs.d/init.el=:
 
+  #+BEGIN_SRC emacs-lisp
+  (require 'ob-applescript)
+  #+END_SRC
 
 * Ideas for future work (you're welcome to help!)
 
