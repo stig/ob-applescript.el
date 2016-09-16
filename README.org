@@ -31,9 +31,10 @@
     : Hello World
   #+END_SRC
 
-  Both 'apples' and 'applescript' works, to cater for two popular major modes.
-  Use whichever you like. I prefer the font-locking of the `apples' one. This
-  example also shows you can do interactive stuff.
+  You can use either =apples= or =applescript= as the language designation, to
+  cater for two popular major modes. Use whichever you like. I prefer the
+  font-locking of the =apples= one. This example also shows you can do
+  interactive stuff.
 
   #+BEGIN_SRC org
     ,#+BEGIN_SRC apples
