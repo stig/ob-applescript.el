@@ -32,6 +32,7 @@
 ;; language be installed as well.
 
  ;;; Code:
+(require 'seq)
 (require 'ob)
 (require 'ob-core)
 (require 'ob-ref)
@@ -47,11 +48,12 @@
 (defun org-babel-variable-assignments:applescript (params)
   "Return list of AppleScript statements assigning the block's variables."
   (mapcar
-   (lambda (pair)
-     (format "set %s to %s\n"
+   (lambda (param)
+     (let ((pair (cdr param)))
+       (format "set %s to %s\n"
              (car pair)
-             (org-babel-applescript-var-to-applescript (cdr pair))))
-   (mapcar #'cdr (org-babel-get-header params :var))))
+             (org-babel-applescript-var-to-applescript (cdr pair)))))
+   (seq-filter (lambda (param) (eq :var (car param))) params)))
 
 (defun org-babel-applescript-var-to-applescript (var)
   "Convert an elisp var into a string of AppleScript source code
