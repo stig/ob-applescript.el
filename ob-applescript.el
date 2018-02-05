@@ -74,7 +74,7 @@
   (let* ((processed-params (org-babel-process-params params))
          (full-body (org-babel-expand-body:applescript body processed-params)))
     (org-babel-applescript-table-or-string
-     (org-babel-eval "osascript" full-body)
+     (do-applescript full-body)
      params)))
 
 (defun org-babel-execute:apples (body params)
