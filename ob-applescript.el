@@ -72,10 +72,10 @@
  This function is called by `org-babel-execute-src-block'"
   (message "executing AppleScript source code block")
   (let* ((processed-params (org-babel-process-params params))
-         (full-body (org-babel-expand-body:applescript body processed-params)))
-    (org-babel-applescript-table-or-string
-     (do-applescript full-body)
-     params)))
+         (full-body (org-babel-expand-body:applescript body processed-params))
+         (result (do-applescript full-body)))
+    (when result
+      (org-babel-applescript-table-or-string result params))))
 
 (defun org-babel-execute:apples (body params)
   "Execute a block of AppleScript with org-babel."
