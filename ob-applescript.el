@@ -74,8 +74,7 @@
   (let* ((processed-params (org-babel-process-params params))
          (full-body (org-babel-expand-body:applescript body processed-params))
          (result (do-applescript full-body)))
-    (when result
-      (org-babel-applescript-table-or-string result params))))
+    result))
 
 (defun org-babel-execute:apples (body params)
   "Execute a block of AppleScript with org-babel."
