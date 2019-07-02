@@ -1,4 +1,4 @@
-;;; ob-applescript.el --- org-babel functions for template evaluation
+;;; ob-applescript.el --- Org-babel functions for AppleScript
 
 ;; Copyright (C) Stig Brautaset
 
