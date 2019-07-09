@@ -46,12 +46,17 @@
 
 (defun org-babel-variable-assignments:applescript (params)
   "Return list of AppleScript statements assigning the block's variables."
-  (mapcar
-   (lambda (pair)
-     (format "set %s to %s\n"
-             (car pair)
-             (org-babel-applescript-var-to-applescript (cdr pair))))
-   (mapcar #'cdr (org-babel-get-header params :var))))
+  (delq
+   nil
+   (mapcar
+    (lambda (param)
+      (if (eq :var (car param))
+          (let ((pair (cdr param)))
+            (format "set %s to %s\n"
+                    (car pair)
+                    (org-babel-applescript-var-to-applescript (cdr pair))))
+        nil))
+    params)))
 
 (defun org-babel-applescript-var-to-applescript (var)
   "Convert an elisp var into a string of AppleScript source code
